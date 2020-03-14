@@ -38,9 +38,6 @@ def draw_trajectory(u, theta):
         x.append(u*math.cos(theta)*t)
         y.append(u*math.sin(theta)*t - 0.5*g*t*t)
 
-    # màxima alçada per la gràfica
-    max_alt = max(y)
-
     # envien les dades a dibuixar
     draw_graph(x,y)
     # per no veure-ho deformat ymax
@@ -48,6 +45,9 @@ def draw_trajectory(u, theta):
     plt.gca().set_aspect('equal', adjustable='box')
     # grid
     plt.grid(b=True, which='major', axis='both')
+    # llegenda
+    plt.legend(['v_ini={0} / angle={1}'.format(u, math.degrees(theta))])
+    #plt.legend('v_ini={0} angle={1}'.format(u, math.degrees(theta))
     plt.show()
 
 if __name__  == '__main__':
